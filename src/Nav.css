@@ -36,6 +36,6 @@ transition: all 0.5s; */
   width: 30px;
   height: 30px;
   object-fit: contain;
-  border-radius: 10%;
+  border-radius: 5%;
   cursor: pointer;
 }
