@@ -35,7 +35,7 @@ function Banner(props) {
       }}
     >
       <div className="banner__fadeTop" />
-      {/* <h1 className="banner__genre">{props?.title}</h1> */}
+      <h1 className="banner__genre">{props?.title}</h1>
       <div className="banner__contents">
         <h1 className="banner__title">
           {movie?.name || movie?.title || movie?.orignial_name}

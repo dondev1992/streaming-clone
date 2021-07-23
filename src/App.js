@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
+import Nav from "./Nav";
 import HomeScreen from "./screens/HomeScreen";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginScreen from "./screens/LoginScreen";
@@ -37,6 +38,7 @@ function App() {
   return (
     <div className="app">
       <Router>
+        <Nav />
         {!user ? (
           <LoginScreen />
         ) : (

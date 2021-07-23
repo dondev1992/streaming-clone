@@ -1,5 +1,4 @@
 import React from "react";
-import Nav from "../Nav";
 import Banner from "../Banner";
 import requests from "../Requests";
 import Row from "../Row";
@@ -7,9 +6,9 @@ import Row from "../Row";
 function Movies() {
   return (
     <div>
-      <Nav title="Movies" />
+      {/* <Nav title="Movies" /> */}
 
-      <Banner />
+      <Banner title="Movies" />
 
       <Row
         title="NETFLIX ORIGINALS"

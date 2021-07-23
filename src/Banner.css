@@ -8,8 +8,8 @@
 
 .banner__contents {
   margin-left: 50px;
-  padding-top: 237px;
-  height: 117px;
+  padding-top: 207px;
+  height: 147px;
 }
 
 .banner__title {
@@ -70,7 +70,8 @@
 
 .banner__genre {
   position: fixed;
-  margin-top: -50px;
+  z-index: 1;
+  margin-top: -60px;
   margin-left: 50px;
   font-size: 3rem;
   font-weight: 600;
