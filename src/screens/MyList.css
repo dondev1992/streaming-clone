@@ -1,0 +1,12 @@
+.myList {
+  height: 100vh;
+  background-color: black;
+}
+
+.myList__title {
+  padding-top: 100px;
+  font-size: 40px;
+  font-weight: 600;
+  margin-left: 50px;
+  color: white;
+}

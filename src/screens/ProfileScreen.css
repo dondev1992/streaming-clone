@@ -44,11 +44,14 @@
 
 .profileScreen__plans {
   margin-top: 20px;
-}
-
-.profileScreen__plans > h3 {
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid #282c2d;
   padding-bottom: 10px;
+}
+
+.profileScreen__currentPlan {
+  margin-left: 10px;
 }
 
 .profileScreen__signOut {
@@ -61,4 +64,9 @@
   background-color: #e50914;
   border: none;
   cursor: pointer;
+  opacity: 0.8;
+}
+
+.profileScreen__signOut:hover {
+  opacity: 1;
 }

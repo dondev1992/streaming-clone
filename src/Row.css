@@ -1,5 +1,14 @@
 .row {
   color: white;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+.row__poster--container {
+  object-fit: contain;
+}
+
+.row__title {
   margin-left: 20px;
 }
 
@@ -10,8 +19,13 @@
   padding: 20px;
 }
 
+.row__poster--title {
+  color: white;
+}
+
 .row__poster {
   max-height: 100px;
+
   object-fit: contain;
   margin-right: 10px;
   width: 100%;
@@ -21,6 +35,10 @@
 .row__poster:hover {
   transform: scale(1.08);
   opacity: 1;
+}
+
+.row__posters::-webkit-scrollbar {
+  display: none;
 }
 
 .row__posterLarge {

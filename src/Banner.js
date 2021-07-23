@@ -3,7 +3,7 @@ import "./Banner.css";
 import axios from "./axios";
 import requests from "./Requests";
 
-function Banner() {
+function Banner(props) {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
@@ -34,6 +34,8 @@ function Banner() {
         backgroundPosition: "center center",
       }}
     >
+      <div className="banner__fadeTop" />
+      {/* <h1 className="banner__genre">{props?.title}</h1> */}
       <div className="banner__contents">
         <h1 className="banner__title">
           {movie?.name || movie?.title || movie?.orignial_name}
