@@ -38,30 +38,32 @@ function App() {
   return (
     <div className="app">
       <Router>
-        <Nav />
         {!user ? (
           <LoginScreen />
         ) : (
-          <Switch>
-            <Route exact path="/">
-              <HomeScreen />
-            </Route>
-            <Route path="/profile">
-              <ProfileScreen />
-            </Route>
-            <Route path="/movies">
-              <Movies />
-            </Route>
-            <Route path="/tvshows">
-              <TvShows />
-            </Route>
-            <Route path="/popular">
-              <Popular />
-            </Route>
-            <Route path="/mylist">
-              <MyList />
-            </Route>
-          </Switch>
+          <>
+            <Nav />
+            <Switch>
+              <Route exact path="/">
+                <HomeScreen />
+              </Route>
+              <Route path="/profile">
+                <ProfileScreen />
+              </Route>
+              <Route path="/movies">
+                <Movies />
+              </Route>
+              <Route path="/tvshows">
+                <TvShows />
+              </Route>
+              <Route path="/popular">
+                <Popular />
+              </Route>
+              <Route path="/mylist">
+                <MyList />
+              </Route>
+            </Switch>
+          </>
         )}
       </Router>
     </div>
