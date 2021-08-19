@@ -95,7 +95,7 @@ function PlansScreen() {
         </p>
       )}
       {Object.entries(products).map(([productId, productData]) => {
-        // TODO add sonme logic to check if the user's subscription is active...
+        // TODO add some logic to check if the user's subscription is active...
         const isCurrentPackage = productData.name
           ?.toLowerCase()
           .includes(subscription?.role);
@@ -116,7 +116,7 @@ function PlansScreen() {
                 !isCurrentPackage && loadCheckout(productData.prices.priceId)
               }
             >
-              {isCurrentPackage ? "Current Package" : "Subscribe"}
+              {!isCurrentPackage ? "Subscribe" : "Current Package"}
             </button>
           </div>
         );

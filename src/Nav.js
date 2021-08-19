@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 import "./Nav.css";
+import { FaBars } from "react-icons/fa";
 
 function Nav(props) {
   const [show, handleShow] = useState(false);
   const history = useHistory();
+  const [open, setOpen] = useState(false);
 
   const transitionNavBar = () => {
     if (window.scrollY > 100) {
@@ -31,22 +33,44 @@ function Nav(props) {
           alt="nametag"
         />
         <div className="nav__menu">
-          <Link to="/" className="nav__menu--headings">
+          <NavLink
+            exact
+            to="/"
+            className="nav__menu--headings "
+            activeStyle={{ fontWeight: "bold" }}
+          >
             Home
-          </Link>
-          <Link to="/tvshows" className="nav__menu--headings">
+          </NavLink>
+          <NavLink
+            to="/tvshows"
+            className="nav__menu--headings"
+            activeStyle={{ fontWeight: "bold" }}
+          >
             TV Shows
-          </Link>
-          <Link to="/movies" className="nav__menu--headings">
+          </NavLink>
+          <NavLink
+            to="/movies"
+            className="nav__menu--headings"
+            activeStyle={{ fontWeight: "bold" }}
+          >
             Movies
-          </Link>
-          <Link to="/popular" className="nav__menu--headings">
+          </NavLink>
+          <NavLink
+            to="/popular"
+            className="nav__menu--headings"
+            activeStyle={{ fontWeight: "bold" }}
+          >
             New & Popular
-          </Link>
-          <Link to="/mylist" className="nav__menu--headings">
+          </NavLink>
+          <NavLink
+            to="/mylist"
+            className="nav__menu--headings"
+            activeStyle={{ fontWeight: "bold" }}
+          >
             My List
-          </Link>
+          </NavLink>
         </div>
+        <FaBars className="nav__menuIcon" onClick={() => setOpen(!open)} />
 
         <img
           onClick={() => {
