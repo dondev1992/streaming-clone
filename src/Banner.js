@@ -5,6 +5,7 @@ import requests from "./Requests";
 
 function Banner(props) {
   const [movie, setMovie] = useState([]);
+  const [myMovies, setMyMovies] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -20,6 +21,12 @@ function Banner(props) {
   }, []);
 
   console.log(movie);
+
+  const addMovie = () => {
+    setMyMovies((prevMyMovies) => [...prevMyMovies, movie]);
+  };
+
+  console.log(myMovies);
 
   function truncate(string, n) {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
@@ -42,7 +49,9 @@ function Banner(props) {
         </h1>
         <div className="banner__buttons">
           <button className="banner__button">Play</button>
-          <button className="banner__button">My List</button>
+          <button className="banner__button" onClick={addMovie}>
+            My List
+          </button>
         </div>
         <h1 className="banner__description">{truncate(movie.overview, 150)}</h1>
       </div>
