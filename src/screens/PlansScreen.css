@@ -22,3 +22,20 @@
 .planScreen__plan--disabled > button {
   background-color: gray !important;
 }
+
+@media (max-width: 768px) {
+  .planScreen__plan {
+    padding: 0;
+    padding-top: 10px;
+  }
+  .planScreen__plan > button {
+    padding: 10px 20px;
+    font-size: 0.75rem;
+    background-color: #e50914;
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    max-width: 90px;
+  }
+}

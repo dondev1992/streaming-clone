@@ -41,7 +41,9 @@ function ProfileScreen() {
               <div className="profileScreen__plans">
                 <h3>Plans</h3>
                 <h3 className="profileScreen__currentPlan">
-                  (Current Plan: {currentPlan.role})
+                  {!currentPlan.role
+                    ? " "
+                    : `(Current Plan: ${currentPlan.role})`}
                 </h3>
               </div>
 

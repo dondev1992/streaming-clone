@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.nav__menu--headings {
+  font-weight: 400;
+  font-size: 0.88rem;
+  margin-right: 20px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}

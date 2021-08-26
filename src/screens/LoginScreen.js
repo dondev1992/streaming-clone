@@ -4,6 +4,12 @@ import SignUpScreen from "./SignUpScreen";
 
 function LoginScreen() {
   const [signIn, setSignIn] = useState(false);
+  const [email, setEmail] = useState("");
+
+  const handleInput = (e) => {
+    setEmail(e.target.value);
+  };
+
   return (
     <div className="loginScreen">
       <div className="loginScreen__background">
@@ -20,7 +26,7 @@ function LoginScreen() {
       </div>
       <div className="loginScreen__body">
         {signIn ? (
-          <SignUpScreen />
+          <SignUpScreen textItem={email} />
         ) : (
           <>
             <h1>Unlimited films, TV programs and more.</h1>
@@ -30,9 +36,15 @@ function LoginScreen() {
               membership.
             </h3>
             <div className="loginScreen__input">
-              <form>
-                <input type="email" placeholder="Email Address" />
+              <form onSubmit={email}>
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  onChange={handleInput}
+                  value={email}
+                />
                 <button
+                  type="submit"
                   onClick={() => setSignIn(true)}
                   className="loginScreen__getStarted"
                 >
