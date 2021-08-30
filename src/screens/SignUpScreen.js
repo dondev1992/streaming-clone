@@ -1,12 +1,10 @@
 import React, { useRef } from "react";
-import { useState } from "react";
 import { auth } from "../firebase";
 import "./SignUpScreen.css";
 
 function SignUpScreen({ loginEmail }) {
-  const [email, setEmail] = useState(loginEmail);
   // to use as a pointer to current email
-  const emailRef = useRef(email);
+  const emailRef = useRef(null);
   // to use as a pointer to current password
   const passwordRef = useRef(null);
 
@@ -25,10 +23,6 @@ function SignUpScreen({ loginEmail }) {
       .catch((error) => {
         alert(error.message);
       });
-  };
-
-  const handleInput = (e) => {
-    setEmail(e.target.value);
   };
 
   const signIn = (e) => {
@@ -55,8 +49,7 @@ function SignUpScreen({ loginEmail }) {
           ref={emailRef}
           placeholder="Email"
           type="email"
-          value={email}
-          onChange={handleInput}
+          defaultValue={loginEmail}
         />
         <input ref={passwordRef} placeholder="Password" type="password" />
         <button type="submit" onClick={signIn}>
