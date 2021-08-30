@@ -48,12 +48,14 @@ function ProfileScreen() {
               </div>
 
               <PlansScreen />
-              <button
-                onClick={() => auth.signOut()}
-                className="profileScreen__signOut"
-              >
-                Sign Out
-              </button>
+              <div className="profileScreen__signOut--button">
+                <button
+                  onClick={() => auth.signOut()}
+                  className="profileScreen__signOut"
+                >
+                  Sign Out
+                </button>
+              </div>
             </div>
           </div>
         </div>

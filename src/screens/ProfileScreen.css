@@ -56,6 +56,12 @@
   margin-left: 10px;
 }
 
+.profileScreen__signOut--button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .profileScreen__signOut {
   padding: 10px 20px;
   font-size: 1rem;
