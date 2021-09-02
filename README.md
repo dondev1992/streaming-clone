@@ -1,16 +1,29 @@
-# NetClone
+# Netflix-Clone
 
-Simple overview of use/purpose.
+A netflix clone made using React, Redux, Firestore, and Stripe API Components.
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+This project is a simplified front end clone of Netflix. It was created with React and CSS (Flexbox). You are able to create an account and purchase a subscription and pay for through Stripe. It uses The MovieDB Api to populate content for the movie genres and display details. s Feel free to contribute!
+
+
+## Demo
+
+The app is deployed using Firebase [Here](https://netflix-clone-bb15d.web.app)
+
 
 ## Getting Started
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
+* React
+* React-Redux
+* Axios
+* React-Router-Dom
+* Firebase
+* Stripe
+* React-Stripe
+* framer-motion
 * ex. Windows 10
 
 ### Installing
