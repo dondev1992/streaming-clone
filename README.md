@@ -30,7 +30,7 @@ The app is deployed using Firebase [Here](https://netflix-clone-bb15d.web.app)
 
 Clone the repo in your terminal writting:
 
-$ git clone https://github.com/josh231101/EJS-Blog-Web-Page.git
+$ git clone https://github.com/dondev1992/netflix-clone.git
 In the project directory, you can run:
 
 ### `npm start`
