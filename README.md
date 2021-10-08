@@ -22,16 +22,22 @@ The app is deployed using Firebase [Here](https://netflix-clone-bb15d.web.app)
 * React-Router-Dom
 * Firebase
 * Stripe
-* React-Stripe
+* Firebase-Stripe
 * framer-motion
-* ex. Windows 10
+* youtube-trailer
+* 
 
 ### Installing
 
 Clone the repo in your terminal writting:
 
 $ git clone https://github.com/dondev1992/netflix-clone.git
+
 In the project directory, you can run:
+
+### npm install
+
+This will install all necessary dependencies for project
 
 ### `npm start`
 Runs the app in the development mode.
@@ -99,12 +105,7 @@ This project is licensed under the [NAME HERE] License - see the LICENSE.md file
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
-
+* 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
