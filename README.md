@@ -12,6 +12,10 @@ This project is a simplified front end clone of Netflix. It was created with Rea
 The app is deployed using Firebase [Here](https://netflix-clone-bb15d.web.app)
 
 
+
+https://user-images.githubusercontent.com/79601799/138332725-e59ad1d8-eba4-4372-b2eb-b360796fb6c5.mp4
+
+
 ## Getting Started
 
 ### Dependencies
