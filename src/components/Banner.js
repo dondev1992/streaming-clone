@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./Banner.css";
 import axios from "../axios";
 import requests from "../Requests";
+import { useDispatch, useSelector } from "react-redux";
+import { selectList, addToList } from "../features/listSlice";
 
 function Banner(props) {
   const [movie, setMovie] = useState([]);
-  const [myMovies, setMyMovies] = useState([]);
+  const list = useSelector(selectList);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function fetchData() {
@@ -20,14 +23,11 @@ function Banner(props) {
     fetchData();
   }, []);
 
-  console.log(movie);
-
-  const addMovie = () => {
-    setMyMovies((prevMyMovies) => [...prevMyMovies, movie]);
+  const addMovies = (movie) => {
+    dispatch(addToList(movie));
   };
 
-  console.log(myMovies);
-
+  // To shorten the length of the movie description
   function truncate(string, n) {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   }
@@ -37,7 +37,7 @@ function Banner(props) {
       className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
         backgroundPosition: "center center",
       }}
     >
@@ -49,11 +49,13 @@ function Banner(props) {
         </h1>
         <div className="banner__buttons">
           <button className="banner__button">Play</button>
-          <button className="banner__button" onClick={addMovie}>
+          <button className="banner__button" onClick={addMovies}>
             My List
           </button>
         </div>
-        <h1 className="banner__description">{truncate(movie.overview, 150)}</h1>
+        <h1 className="banner__description">
+          {truncate(movie?.overview, 150)}
+        </h1>
       </div>
 
       <div className="banner__fadeBottom" />

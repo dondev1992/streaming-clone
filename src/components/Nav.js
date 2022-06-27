@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "./Nav.css";
 import Navlinks from "./Navlinks";
-import MobileNavlinks from "./MobileNavlinks";
+import MobileNavMenu from "./MobileNavMenu";
 
 function Nav(props) {
   const [show, handleShow] = useState(false);
@@ -36,7 +36,7 @@ function Nav(props) {
           <Navlinks />
         </div>
         <div className="nav__mobile--container">
-          <MobileNavlinks />
+          <MobileNavMenu />
         </div>
 
         <img

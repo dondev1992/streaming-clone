@@ -1,11 +1,8 @@
 .row {
   color: white;
   margin-left: 30px;
-  margin-bottom: 20px;
-}
-
-.row__poster--container {
-  object-fit: contain;
+  margin-bottom: 30px;
+  z-index: 100;
 }
 
 .row__title {
@@ -19,21 +16,28 @@
   padding: 20px;
 }
 
+.row__poster--container {
+  transition: transform 400ms;
+}
+
+.row__poster--container:hover {
+  transform: scale(1.3);
+  opacity: 1;
+}
+
 .row__poster--title {
   color: white;
 }
 
 .row__poster {
   max-height: 100px;
-
   object-fit: contain;
   margin-right: 10px;
-  width: 100%;
-  transition: transform 450ms;
+  transition: transform 400ms;
 }
 
 .row__poster:hover {
-  transform: scale(1.5);
+  transform: scale(1.3);
   opacity: 1;
 }
 
@@ -43,9 +47,10 @@
 
 .row__posterLarge {
   max-height: 250px;
+  object-fit: contain;
 }
 
-.row__posterLarge:hover {
+/* .row__posterLarge:hover {
   transform: scale(1.3);
   opacity: 1;
-}
+} */
