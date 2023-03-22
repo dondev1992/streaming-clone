@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
+import { login } from "../features/users/userSlice";
 import { auth } from "../firebase";
 import "./SignInScreen.css";
 import SignUpScreen from "./SignUpScreen";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function SignInScreen({ loginEmail }) {
   // to use as a pointer to current email
@@ -37,18 +39,23 @@ function SignInScreen({ loginEmail }) {
         passwordRef.current.value
       )
       .then((authUser) => {
-        console.log(authUser);
+        const user = authUser;
+        dispatchEvent(login({ user }));
       })
       .catch((error) => {
         alert(error.message);
       });
   };
 
+  const onChange = (value) => {
+    console.log("Captcha value: ", value);
+  }
+
   return (
     <>
       {!signUp ? (
         <div className="signupScreen">
-          <form>
+          <form action="?" method="POST">
             <h1>Sign In</h1>
             <input
               ref={emailRef}
@@ -69,6 +76,10 @@ function SignInScreen({ loginEmail }) {
                 Sign Up now.
               </span>
             </h4>
+            <ReCAPTCHA
+              sitekey="6LdUaiIlAAAAAKYQEfdILMbKCstWeFsNqC2oMel1"
+              onChange={onChange}
+            />
           </form>
         </div>
       ) : (

@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { auth } from "../firebase";
 import db from "../firebase";
 import "./SignUpScreen.css";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function SignUpScreen({ signUpEmail, signUpPassword }) {
   // to use as a pointer to name
@@ -33,6 +34,9 @@ function SignUpScreen({ signUpEmail, signUpPassword }) {
         alert(error.message);
       });
   };
+  const onChange = (value) => {
+    console.log("Captcha value: ", value);
+  }
 
   return (
     <div className="signupScreen">
@@ -61,6 +65,10 @@ function SignUpScreen({ signUpEmail, signUpPassword }) {
             Sign Up now.
           </span>
         </h4>
+        <ReCAPTCHA
+          sitekey="6LdUaiIlAAAAAKYQEfdILMbKCstWeFsNqC2oMel1"
+          onChange={onChange}
+        />
       </form>
     </div>
   );

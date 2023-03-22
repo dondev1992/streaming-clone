@@ -7,7 +7,7 @@ import LoginScreen from "./screens/LoginScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import { auth } from "./firebase";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout, selectUser } from "./features/userSlice";
+import { login, logout, selectUser } from "./features/users/userSlice";
 import Movies from "./screens/Movies";
 import TvShows from "./screens/TvShows";
 import Popular from "./screens/Popular";

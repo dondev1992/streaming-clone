@@ -3,14 +3,14 @@ import "./Banner.css";
 import axios from "../axios";
 import requests from "../Requests";
 import { useDispatch, useSelector } from "react-redux";
-import { selectList, addToList } from "../features/listSlice";
+import { selectList, addToList } from "../features/list/listSlice";
 
 function Banner(props) {
   const [movie, setMovie] = useState([]);
-  const list = useSelector(selectList);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // To fetch random Netflix movie for Banner
     async function fetchData() {
       const request = await axios.get(requests.fetchNetflixOriginals);
       setMovie(
@@ -23,11 +23,11 @@ function Banner(props) {
     fetchData();
   }, []);
 
-  const addMovies = (movie) => {
+  const addMovie = () => {
     dispatch(addToList(movie));
   };
 
-  // To shorten the length of the movie description
+  // To shorten the text length of the movie description
   function truncate(string, n) {
     return string?.length > n ? string.substr(0, n - 1) + "..." : string;
   }
@@ -49,7 +49,7 @@ function Banner(props) {
         </h1>
         <div className="banner__buttons">
           <button className="banner__button">Play</button>
-          <button className="banner__button" onClick={addMovies}>
+          <button className="banner__button" onClick={addMovie}>
             My List
           </button>
         </div>
