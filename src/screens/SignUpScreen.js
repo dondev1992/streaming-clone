@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { auth } from "../firebase";
 import "./SignUpScreen.css";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function SignUpScreen({ loginEmail }) {
   // to use as a pointer to current email
@@ -41,6 +42,9 @@ function SignUpScreen({ loginEmail }) {
       });
   };
 
+  const onChange = (value) => {
+    console.log('Captcha value:', value)
+  }
   return (
     <div className="signupScreen">
       <form>
@@ -61,6 +65,10 @@ function SignUpScreen({ loginEmail }) {
             Sign Up now.
           </span>
         </h4>
+        <ReCAPTCHA
+          sitekey="Your client site key"
+          onChange={onChange}
+        />
       </form>
     </div>
   );
