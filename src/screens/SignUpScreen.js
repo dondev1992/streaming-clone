@@ -1,9 +1,14 @@
 import React, { useRef } from "react";
 import { auth } from "../firebase";
+import db from "../firebase";
 import "./SignUpScreen.css";
 import ReCAPTCHA from "react-google-recaptcha";
 
-function SignUpScreen({ loginEmail }) {
+function SignUpScreen({ signUpEmail, signUpPassword }) {
+  // to use as a pointer to name
+  const firstNameRef = useRef(null);
+  // to use as a pointer to name
+  const lastNameRef = useRef(null);
   // to use as a pointer to current email
   const emailRef = useRef(null);
   // to use as a pointer to current password
@@ -18,24 +23,12 @@ function SignUpScreen({ loginEmail }) {
         emailRef.current.value,
         passwordRef.current.value
       )
-      .then((authUser) => {
-        console.log(authUser);
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  };
-
-  const signIn = (e) => {
-    e.preventDefault();
-
-    auth
-      .signInWithEmailAndPassword(
-        emailRef.current.value,
-        passwordRef.current.value
-      )
-      .then((authUser) => {
-        console.log(authUser);
+      .then((userCredential) => {
+        db.collection("customers").doc(userCredential.user.uid).set({
+          firstname: firstNameRef.current.value,
+          lastname: lastNameRef.current.value,
+          mylist: [],
+        });
       })
       .catch((error) => {
         alert(error.message);
@@ -48,16 +41,23 @@ function SignUpScreen({ loginEmail }) {
   return (
     <div className="signupScreen">
       <form>
-        <h1>Sign In</h1>
+        <h1>Sign Up</h1>
+        <input ref={firstNameRef} placeholder="First Name" type="text" />
+        <input ref={lastNameRef} placeholder="Last Name" type="text" />
         <input
           ref={emailRef}
           placeholder="Email"
           type="email"
-          defaultValue={loginEmail}
+          defaultValue={signUpEmail}
         />
-        <input ref={passwordRef} placeholder="Password" type="password" />
-        <button type="submit" onClick={signIn}>
-          Sign In
+        <input
+          ref={passwordRef}
+          placeholder="Password"
+          type="password"
+          defaultValue={signUpPassword}
+        />
+        <button type="submit" onClick={register}>
+          Sign Up
         </button>
         <h4>
           <span className="signupScreen__gray">New to Netflix? </span>
@@ -66,7 +66,7 @@ function SignUpScreen({ loginEmail }) {
           </span>
         </h4>
         <ReCAPTCHA
-          sitekey="Your client site key"
+          sitekey="6LdUaiIlAAAAAKYQEfdILMbKCstWeFsNqC2oMel1"
           onChange={onChange}
         />
       </form>

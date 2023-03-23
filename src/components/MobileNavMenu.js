@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
-import "./MobileNavlinks.css";
+import "./MobileNavMenu.css";
 import { motion } from "framer-motion";
 
-function MobileNavlinks() {
+function MobileNavMenu() {
   const [open, setOpen] = useState(false);
   const animateFrom = { opacity: 0, y: -45 };
   const animateTo = { opacity: 1, y: 0 };
 
   return (
-    <div className="mobilenavlinks__container">
+    <div className="mobileNavMenu__container">
       <FaBars className="nav__menuIcon" onClick={() => setOpen(!open)} />
       {open && (
-        <ul className="mobilenavlinks__list">
+        <ul className="mobileNavMenu__list">
           <motion.li
-            className="mobilenavlinks__navlink"
+            className="mobileNavMenu__navlink"
             initial={animateFrom}
             animate={animateTo}
             transition={{ delay: 0.02 }}
@@ -24,14 +24,14 @@ function MobileNavlinks() {
               onClick={() => setOpen(false)}
               exact
               to="/"
-              className="nav__menu--links "
+              className="mobileNavMenu__menu--links "
               activeStyle={{ fontWeight: "bold" }}
             >
               Home
             </NavLink>
           </motion.li>
           <motion.li
-            className="mobilenavlinks__navlink"
+            className="mobileNavMenu__navlink"
             initial={animateFrom}
             animate={animateTo}
             transition={{ delay: 0.07 }}
@@ -39,14 +39,14 @@ function MobileNavlinks() {
             <NavLink
               onClick={() => setOpen(false)}
               to="/tvshows"
-              className="nav__menu--links"
+              className="mobileNavMenu__menu--links"
               activeStyle={{ fontWeight: "bold" }}
             >
               TV
             </NavLink>
           </motion.li>
           <motion.li
-            className="mobilenavlinks__navlink"
+            className="mobileNavMenu__navlink"
             initial={animateFrom}
             animate={animateTo}
             transition={{ delay: 0.17 }}
@@ -54,14 +54,14 @@ function MobileNavlinks() {
             <NavLink
               onClick={() => setOpen(false)}
               to="/movies"
-              className="nav__menu--links"
+              className="mobileNavMenu__menu--links"
               activeStyle={{ fontWeight: "bold" }}
             >
               Movies
             </NavLink>
           </motion.li>
           <motion.li
-            className="mobilenavlinks__navlink"
+            className="mobileNavMenu__navlink"
             initial={animateFrom}
             animate={animateTo}
             transition={{ delay: 0.27 }}
@@ -69,14 +69,14 @@ function MobileNavlinks() {
             <NavLink
               onClick={() => setOpen(false)}
               to="/popular"
-              className="nav__menu--links"
+              className="mobileNavMenu__menu--links"
               activeStyle={{ fontWeight: "bold" }}
             >
               New
             </NavLink>
           </motion.li>
           <motion.li
-            className="mobilenavlinks__navlink"
+            className="mobileNavMenu__navlink"
             initial={animateFrom}
             animate={animateTo}
             transition={{ delay: 0.37 }}
@@ -84,7 +84,7 @@ function MobileNavlinks() {
             <NavLink
               onClick={() => setOpen(false)}
               to="/mylist"
-              className="nav__menu--links"
+              className="mobileNavMenu__menu--links"
               activeStyle={{ fontWeight: "bold" }}
             >
               My List
@@ -96,4 +96,4 @@ function MobileNavlinks() {
   );
 }
 
-export default MobileNavlinks;
+export default MobileNavMenu;
