@@ -13,23 +13,6 @@ function SignInScreen({ loginEmail }) {
 
   const [signUp, setSignUp] = useState(false);
 
-  // function for creation of new user
-  const register = (e) => {
-    e.preventDefault();
-
-    auth
-      .createUserWithEmailAndPassword(
-        emailRef.current.value,
-        passwordRef.current.value
-      )
-      .then((authUser) => {
-        console.log(authUser);
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-  };
-
   const signIn = (e) => {
     e.preventDefault();
 
@@ -77,7 +60,7 @@ function SignInScreen({ loginEmail }) {
               </span>
             </h4>
             <ReCAPTCHA
-              sitekey="6LdUaiIlAAAAAKYQEfdILMbKCstWeFsNqC2oMel1"
+              sitekey={process.env.REACT_APP_RECAPTCHAP}
               onChange={onChange}
             />
           </form>

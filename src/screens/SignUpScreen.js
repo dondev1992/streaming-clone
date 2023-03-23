@@ -1,13 +1,15 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { auth } from "../firebase";
 import db from "../firebase";
 import "./SignUpScreen.css";
 import ReCAPTCHA from "react-google-recaptcha";
+import SignInScreen from "./SignInScreen";
 
 function SignUpScreen({ signUpEmail, signUpPassword }) {
-  // to use as a pointer to name
+  const [signIn, setSignIn] = useState(false);
+  // to use as a pointer to first name
   const firstNameRef = useRef(null);
-  // to use as a pointer to name
+  // to use as a pointer to last name
   const lastNameRef = useRef(null);
   // to use as a pointer to current email
   const emailRef = useRef(null);
@@ -39,38 +41,44 @@ function SignUpScreen({ signUpEmail, signUpPassword }) {
     console.log('Captcha value:', value)
   }
   return (
-    <div className="signupScreen">
-      <form>
-        <h1>Sign Up</h1>
-        <input ref={firstNameRef} placeholder="First Name" type="text" />
-        <input ref={lastNameRef} placeholder="Last Name" type="text" />
-        <input
-          ref={emailRef}
-          placeholder="Email"
-          type="email"
-          defaultValue={signUpEmail}
-        />
-        <input
-          ref={passwordRef}
-          placeholder="Password"
-          type="password"
-          defaultValue={signUpPassword}
-        />
-        <button type="submit" onClick={register}>
-          Sign Up
-        </button>
-        <h4>
-          <span className="signupScreen__gray">New to Netflix? </span>
-          <span className="signupScreen__link" onClick={register}>
-            Sign Up now.
-          </span>
-        </h4>
-        <ReCAPTCHA
-          sitekey="6LdUaiIlAAAAAKYQEfdILMbKCstWeFsNqC2oMel1"
-          onChange={onChange}
-        />
-      </form>
-    </div>
+    <>
+      {!signIn ? (
+        <div className="signupScreen">
+          <form>
+            <h1>Sign Up</h1>
+            <input ref={firstNameRef} placeholder="First Name" type="text" />
+            <input ref={lastNameRef} placeholder="Last Name" type="text" />
+            <input
+              ref={emailRef}
+              placeholder="Email"
+              type="email"
+              defaultValue={signUpEmail}
+            />
+            <input
+              ref={passwordRef}
+              placeholder="Password"
+              type="password"
+              defaultValue={signUpPassword}
+            />
+            <button type="submit" onClick={register}>
+              Sign Up
+            </button>
+            <h4>
+              <span className="signupScreen__gray">Already a member? </span>
+              <span className="signupScreen__link" onClick={() => setSignIn(true)}>
+                Sign In now.
+              </span>
+            </h4>
+            <ReCAPTCHA
+              sitekey={process.env.REACT_APP_RECAPTCHAP}
+              onChange={onChange}
+            />
+          </form>
+        </div>
+      ) : (
+        <SignInScreen />
+      )}
+    </>
   );
 }
 
