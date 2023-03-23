@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ProfileScreen.css";
 import { useSelector } from "react-redux";
-import { selectUser } from "../features/userSlice";
+import { selectUser } from "../features/users/userSlice";
 import { auth } from "../firebase";
 import db from "../firebase";
 import PlansScreen from "./PlansScreen";
@@ -9,6 +9,7 @@ import PlansScreen from "./PlansScreen";
 function ProfileScreen() {
   const user = useSelector(selectUser);
   const [currentPlan, setCurrentPlan] = useState({});
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     db.collection("customers")
@@ -20,6 +21,18 @@ function ProfileScreen() {
           setCurrentPlan({
             role: currentPlan.data().role,
           });
+        });
+      });
+  }, [user.uid]);
+
+  useEffect(() => {
+    db.collection("customers")
+      .doc(user.uid)
+      .get()
+      .then((userName) => {
+        setUserName({
+          firstname: userName.data().firstname,
+          lastname: userName.data().lastname,
         });
       });
   }, [user.uid]);
@@ -36,7 +49,9 @@ function ProfileScreen() {
             alt="avatar"
           />
           <div className="profileScreen__details">
-            <h2>{user.email}</h2>
+            <h2>
+              {userName.firstname} {userName.lastname}
+            </h2>
             <div>
               <div className="profileScreen__plans">
                 <h3>Plans</h3>

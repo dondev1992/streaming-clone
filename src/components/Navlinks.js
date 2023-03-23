@@ -4,6 +4,7 @@ import "./Navlinks.css";
 
 function Navlinks() {
   return (
+    // Navlinks are clickable elements that will redirect you to another screen
     <nav>
       <NavLink
         exact
