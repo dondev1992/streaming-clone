@@ -76,7 +76,7 @@ function PlansScreen() {
         // Init Stripe
 
         const stripe = await loadStripe(
-          "pk_test_51JEhhcJPlRmb79VScYIIN9wRuqjTL6pW2Yduasj24o6VCwwS6WSjP5U1o5LxnROMc80NBpok6pmrfCaDSISpT82p00qUF511fi"
+          process.env.REACT_APP_STRIPE
         );
         stripe.redirectToCheckout({ sessionId });
       }
