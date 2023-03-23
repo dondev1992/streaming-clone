@@ -6,6 +6,10 @@ import { store } from "./app/store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 
+// exports.envVar = (req, res) => {
+//   // Sends 'bar' as response
+//   res.send(process.env.REACT_APP_FIREBASE_KEY);
+// };
 // ReactDOM.render will render the App component the 'root' document in index.html
 ReactDOM.render(
   <React.StrictMode>
