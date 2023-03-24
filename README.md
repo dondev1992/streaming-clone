@@ -10,7 +10,7 @@ This project is a simplified front end clone of Netflix. It was created with Rea
 ## Demo
 
 
-The app is deployed using Firebase [Here](https://641b936eb8c9062d86b00dea--reliable-haupia-ed4bd2.netlify.app/)
+The app is deployed using Firebase [Here](https://site-flicks.vercel.app)
 
 
 
