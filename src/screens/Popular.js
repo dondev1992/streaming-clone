@@ -3,6 +3,10 @@ import Banner from "../components/Banner";
 import requests from "../Requests";
 import Row from "../components/Row";
 
+/**
+ * @description Creates the popular page with title of 'New on Netflix'.
+ * @returns Screen component made of banner and row components
+ */
 function Popular() {
   return (
     <div>

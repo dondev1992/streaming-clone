@@ -3,6 +3,10 @@ import React, { useState, useEffect } from "react";
 import "./Row.css";
 import MovieModal from "./MovieModal";
 
+/**
+ * @description Creates a new instance of rows for each genre displayed on the page
+ * @returns a row of movie posters
+ */
 function Row({ title, fetchUrl, isLargeRow = false }) {
   const [movies, setMovies] = useState([]);
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -11,6 +15,9 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
 
   const base_url = "https://image.tmdb.org/t/p/original/";
 
+  /**
+   * @description fetches a list of movies from TMDB api and stores it in the 'movie' state array 
+   */
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
@@ -21,6 +28,10 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
     fetchData();
   }, [fetchUrl]);
 
+  /**
+   * @description A function that calculates a random percentage between 0 and 100
+   * @returns number
+   */
   const randomPercentageModal = () => {
     return Math.floor(Math.random() * 100);
   };

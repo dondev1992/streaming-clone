@@ -4,24 +4,17 @@ import "./index.css";
 import App from "./App";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
-import * as serviceWorker from "./serviceWorker";
 
-// exports.envVar = (req, res) => {
-//   // Sends 'bar' as response
-//   res.send(process.env.REACT_APP_FIREBASE_KEY);
-// };
-// ReactDOM.render will render the App component the 'root' document in index.html
+/**
+ * The App is wrapped in a
+ * redux component to give access to the 
+ * stored state from anywhere in the application.
+ */
 ReactDOM.render(
   <React.StrictMode>
-    {/* Must wrap the entire App with Redux provider to allow state munipulation throughout app */}
     <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

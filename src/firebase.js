@@ -1,5 +1,8 @@
 import firebase from "firebase";
 
+/**
+ * @description For importing the necessary Firebase libraries
+ */
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: "netflix-clone-bb15d.firebaseapp.com",

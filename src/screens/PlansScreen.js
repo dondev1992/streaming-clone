@@ -5,6 +5,10 @@ import { selectUser } from "../features/users/userSlice";
 import db from "../firebase";
 import "./PlansScreen.css";
 
+/**
+ * @description Creates the plan section of the Profile screen
+ * @returns 
+ */
 function PlansScreen() {
   const [products, setProducts] = useState([]);
   const user = useSelector(selectUser);
@@ -28,6 +32,11 @@ function PlansScreen() {
       });
   }, [user.uid]);
 
+  /**
+   * @description On first component mount, this function looks for all
+   * active subscriptions then creates a snapshot of the subscriptions
+   * and updates the state of the products array.
+   */
   useEffect(() => {
     db.collection("products")
       .where("active", "==", true)
@@ -48,10 +57,7 @@ function PlansScreen() {
       });
   }, []);
 
-  console.log(products);
-  console.log(subscription);
-
-  // To create a checkout session
+  // To create a Stripe checkout session
   const loadCheckout = async (priceId) => {
     const docRef = await db
       .collection("customers")
@@ -95,7 +101,7 @@ function PlansScreen() {
         </p>
       )}
       {Object.entries(products).map(([productId, productData]) => {
-        // TODO add some logic to check if the user's subscription is active...
+        // check if the user's subscription is active
         const isCurrentPackage = productData.name
           ?.toLowerCase()
           .includes(subscription?.role);

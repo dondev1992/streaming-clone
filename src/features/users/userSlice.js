@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+/* Creating the redux slice comprised of the inital state and reducers that will 
+   handle that state */
 export const userSlice = createSlice({
   name: "user",
   initialState: {

@@ -5,6 +5,11 @@ import "./SignUpScreen.css";
 import ReCAPTCHA from "react-google-recaptcha";
 import SignInScreen from "./SignInScreen";
 
+/**
+ * @description Creates the Sign Up form
+ * @param {props} signUpEmail, signUpPassword
+ * @returns 
+ */
 function SignUpScreen({ signUpEmail, signUpPassword }) {
   const [signIn, setSignIn] = useState(false);
   // to use as a pointer to first name
@@ -16,7 +21,7 @@ function SignUpScreen({ signUpEmail, signUpPassword }) {
   // to use as a pointer to current password
   const passwordRef = useRef(null);
 
-  // function for creation of new user
+  // function for creation of new user to Firebase Authentication Users
   const register = (e) => {
     e.preventDefault();
 
@@ -37,9 +42,8 @@ function SignUpScreen({ signUpEmail, signUpPassword }) {
       });
   };
 
-  const onChange = (value) => {
-    console.log('Captcha value:', value)
-  }
+  const onChange = () => { }
+
   return (
     <>
       {!signIn ? (

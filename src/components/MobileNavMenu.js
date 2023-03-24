@@ -4,6 +4,9 @@ import { NavLink } from "react-router-dom";
 import "./MobileNavMenu.css";
 import { motion } from "framer-motion";
 
+/**
+ * @description Creates the responsive navbar for mobile phone screen sizes
+ */
 function MobileNavMenu() {
   const [open, setOpen] = useState(false);
   const animateFrom = { opacity: 0, y: -45 };
@@ -83,7 +86,7 @@ function MobileNavMenu() {
           >
             <NavLink
               onClick={() => setOpen(false)}
-              to="/mylist"
+              to="/"
               className="mobileNavMenu__menu--links"
               activeStyle={{ fontWeight: "bold" }}
             >

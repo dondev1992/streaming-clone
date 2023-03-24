@@ -6,11 +6,18 @@ import { auth } from "../firebase";
 import db from "../firebase";
 import PlansScreen from "./PlansScreen";
 
+/**
+ * @description Creates the profile screen with user's name, plan selected, 
+ * renewal date, other plan options, and sign out button.
+ */
 function ProfileScreen() {
   const user = useSelector(selectUser);
   const [currentPlan, setCurrentPlan] = useState({});
   const [userName, setUserName] = useState("");
 
+  /**
+   * @description When screen first mounts, retrieves the current user subscription data.
+   */
   useEffect(() => {
     db.collection("customers")
       .doc(user.uid)
@@ -25,6 +32,9 @@ function ProfileScreen() {
       });
   }, [user.uid]);
 
+  /**
+   * @description When screen first mounts, retrieves the current user first and last name.
+   */
   useEffect(() => {
     db.collection("customers")
       .doc(user.uid)
@@ -36,8 +46,6 @@ function ProfileScreen() {
         });
       });
   }, [user.uid]);
-
-  console.log(currentPlan);
 
   return (
     <div className="profileScreen">

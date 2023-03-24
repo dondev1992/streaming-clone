@@ -11,12 +11,15 @@ import { login, logout, selectUser } from "./features/users/userSlice";
 import Movies from "./screens/Movies";
 import TvShows from "./screens/TvShows";
 import Popular from "./screens/Popular";
-import MyList from "./screens/MyList";
 
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
+  /**
+   * @description Checks Firebase to see if the user is logged in, 
+   * if so saves the login info to redux store
+   */
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
@@ -58,10 +61,7 @@ function App() {
               </Route>
               <Route path="/popular">
                 <Popular />
-              </Route>
-              <Route path="/mylist">
-                <MyList />
-              </Route>
+                </Route>
             </Switch>
           </>
         )}

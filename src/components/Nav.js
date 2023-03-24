@@ -4,10 +4,17 @@ import "./Nav.css";
 import Navlinks from "./Navlinks";
 import MobileNavMenu from "./MobileNavMenu";
 
-function Nav(props) {
+/**
+ * @description Creates Navigation Component with a background transition effect
+ */
+function Nav() {
   const [show, handleShow] = useState(false);
   const history = useHistory();
 
+  /**
+   * @description A function that handles when the navbar 
+   * background will transition to solid black
+   */
   const transitionNavBar = () => {
     if (window.scrollY > 100) {
       handleShow(true);
@@ -16,6 +23,11 @@ function Nav(props) {
     }
   };
 
+  /**
+   * @description When the navbar first mounts, it will add an 
+   * eventlistener to the navbar and when the navbar
+   * unmounts the eventlistener is removed
+   */
   useEffect(() => {
     window.addEventListener("scroll", transitionNavBar);
     return () => window.removeEventListener("scroll", transitionNavBar);

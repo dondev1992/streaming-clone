@@ -1,6 +1,8 @@
 // Typically we would store in a {process.env.API_KEY}
 const API_KEY = "c986b87d07a24b0a7c5aeef9a00b0545";
 
+// To keep all of the tmdb api requests in one object
+
 const requests = {
   fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
   fetchNetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,

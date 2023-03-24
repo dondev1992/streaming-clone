@@ -3,13 +3,14 @@ import Banner from "../components/Banner";
 import requests from "../Requests";
 import Row from "../components/Row";
 
+/**
+ * @description Creates the movie page with title of 'Movies'.
+ * @returns Screen component made of banner and row components
+ */
 function Movies() {
   return (
     <div>
-      {/* <Nav title="Movies" /> */}
-
       <Banner title="Movies" />
-
       <Row
         title="NETFLIX ORIGINALS"
         fetchUrl={requests.fetchNetflixOriginals}

@@ -4,6 +4,10 @@ import Banner from "../components/Banner";
 import requests from "../Requests";
 import Row from "../components/Row";
 
+/**
+ * @description Creates the landing page after successful sign in or sign up.
+ * @returns Screen component made of banner and row components
+ */
 function HomeScreen() {
   return (
     <div className="homeScreen">

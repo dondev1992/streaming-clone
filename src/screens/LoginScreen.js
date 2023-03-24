@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./LoginScreen.css";
 import SignInScreen from "./SignInScreen";
 
+/**
+ * @description Page that handles the sign in / sign up process
+ */
 function LoginScreen() {
   const [signIn, setSignIn] = useState(false);
   const [email, setEmail] = useState("");
@@ -9,6 +12,10 @@ function LoginScreen() {
   const handleInput = (e) => {
     setEmail(e.target.value);
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
 
   return (
     <div className="loginScreen">
@@ -36,7 +43,7 @@ function LoginScreen() {
               membership.
             </h3>
             <div className="loginScreen__input">
-              <form onSubmit={email}>
+                <form onSubmit={handleSubmit}>
                 <input
                   type="email"
                   placeholder="Email Address"

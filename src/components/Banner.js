@@ -2,19 +2,21 @@ import React, { useState, useEffect } from "react";
 import "./Banner.css";
 import axios from "../axios";
 import requests from "../Requests";
-import { useDispatch, useSelector } from "react-redux";
-import { selectList, addToList } from "../features/list/listSlice";
 
+/**
+ * @description Creates the banner section of the page.
+ * @param {*} props 
+ * @returns 
+ */
 function Banner(props) {
   const [movie, setMovie] = useState([]);
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    // To fetch random Netflix movie for Banner
+    // To fetch random Netflix movie for Banner on first mount 
     async function fetchData() {
       const request = await axios.get(requests.fetchNetflixOriginals);
       setMovie(
-        request.data.results[
+        request?.data?.results[
           Math.floor(Math.random() * request.data.results.length - 1)
         ]
       );
@@ -23,9 +25,7 @@ function Banner(props) {
     fetchData();
   }, []);
 
-  const addMovie = () => {
-    dispatch(addToList(movie));
-  };
+  const addMovie = () => { };
 
   // To shorten the text length of the movie description
   function truncate(string, n) {

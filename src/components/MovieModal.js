@@ -4,6 +4,20 @@ import movieTrailer from "movie-trailer";
 import YouTube from "react-youtube";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 
+/**
+ * @description Creates a modal that displays a movie trailer, 
+ * title, release date, and voting percentage
+ * @param {props} backdrop_path
+ * @param {props} title
+ * @param {props} overview
+ * @param {props} name
+ * @param {props} release_date
+ * @param {props} first_air_date
+ * @param {props} vote_average
+ * @param {props} setModalVisibility
+ * @param {props} percent
+ * @returns 
+ */
 function MovieModal({
   backdrop_path,
   title,
@@ -18,6 +32,9 @@ function MovieModal({
   const base_url = "https://image.tmdb.org/t/p/original/";
   const [trailerUrl, setTrailerUrl] = useState("");
 
+  /**
+   * @description Additional options for the modal styling and operation
+   */
   const opts = {
     height: "390",
     width: "100%",
@@ -26,10 +43,10 @@ function MovieModal({
     },
   };
 
-  //   const randomPercentage = () => {
-  //     return Math.floor(Math.random() * 100);
-  //   };
-
+  /**
+   * @description Will execute immediately after modal first
+   * mount and fetch the trailer api data
+   */
   useEffect(() => {
     if (trailerUrl) {
       setTrailerUrl("");
@@ -44,8 +61,6 @@ function MovieModal({
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log(trailerUrl);
 
   return (
     <div className="presentation" role="presentation">

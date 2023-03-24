@@ -3,6 +3,10 @@ import Banner from "../components/Banner";
 import requests from "../Requests";
 import Row from "../components/Row";
 
+/**
+ * @description Creates the tv show page with title of 'TV Shows'.
+ * @returns Screen component made of banner and row components
+ */
 function TvShows() {
   return (
     <div>

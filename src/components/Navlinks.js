@@ -2,6 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navlinks.css";
 
+/**
+ * @description Creates links for page navigation with the navbar
+ * @returns NavLink 
+ */
 function Navlinks() {
   return (
     // Navlinks are clickable elements that will redirect you to another screen
@@ -36,9 +40,8 @@ function Navlinks() {
         New & Popular
       </NavLink>
       <NavLink
-        to="/mylist"
+        to="/"
         className="nav__menu--headings"
-        activeStyle={{ fontWeight: "bold" }}
       >
         My List
       </NavLink>
